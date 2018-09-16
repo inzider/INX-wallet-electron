@@ -1,0 +1,54 @@
+.animationIf {
+
+  &.ng-enter,
+  &.ng-leave {
+    transition: opacity ease-in 0.5s;
+  }
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
+.heartbeat {
+  backface-visibility: hidden;
+  animation: heartbeat 2.5s infinite;
+  -webkit-transform-style: preserve-3d;
+}
+@keyframes heartbeat {
+  0% {
+    opacity: 0.6;
+    transform: scale(.95);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  40% {
+    opacity: 0.6;
+    transform: scale(.95);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  80% {
+    opacity: 0.6;
+    transform: scale(.95);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: scale(.95);
+  }
+}

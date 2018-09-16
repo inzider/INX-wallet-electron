@@ -2,8 +2,9 @@
   "name": "inx-wallet-electron",
   "version": "1.0.0",
   "description": "INX Wallet created with ElectronJS.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,19 @@
   "bugs": {
     "url": "https://github.com/InziderX/INX-wallet-electron/issues"
   },
-  "homepage": "https://github.com/InziderX/INX-wallet-electron#readme"
+  "homepage": "https://github.com/InziderX/INX-wallet-electron#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
+    "pump": "^3.0.0"
+  },
+  "dependencies": {
+    "electron": "^2.0.0",
+    "inx-daemon-nodejs-wrapper": "git+https://github.com/InziderX/INX-daemon-nodejs-wrapper.git",
+    "inx-wallet-nodejs-wrapper": "git+https://github.com/InziderX/INX-wallet-nodejs-wrapper.git"
+  }
 }

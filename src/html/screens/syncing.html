@@ -1,0 +1,20 @@
+<background></background>
+
+<div class="content">
+  <img src="assets/images/InziderX_logo_white.png" class="logo-img">
+  
+  <p style="padding-bottom: 10px;">
+    Blockchain is syncronizing... (<span ng-bind="syncPercent.toFixed(2)">0</span>%)
+  </p>
+
+  <div class="loading-bar">
+    <div ng-style="{ 'width': syncPercent + '%' }" class="inner-loading-bar"></div>
+  </div>
+  
+  <p class="small-text">
+    <span ng-bind="blockchain.height">0</span> / <span ng-bind="blockchain.network_height">0</span> Blocks 
+    | 
+    <span ng-bind="peerCount">0</span> peers
+  </p>
+</div>
+

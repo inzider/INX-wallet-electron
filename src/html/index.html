@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head ng-controller="headerCtrl">
+  <base href="">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title ng-bind="windowTitle"></title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body ng-cloak>
+  <main class="animationIf" ng-if="syncState == 'synced'" ng-controller="mainCtrl">
+
+    <header ng-include="'templates/header.html'"></header>
+
+    <aside ng-include="'templates/menu.html'"></aside>
+
+    <ng-view></ng-view>
+
+  </main>
+
+  <screen class="animationIf" ng-if="syncState == 'started'" ng-include="'screens/started.html'"></screen>
+
+  <screen class="animationIf" ng-if="syncState == 'syncing'" ng-include="'screens/syncing.html'"></screen>
+
+  <screen class="animationIf" ng-if="syncState == 'desync'" ng-include="'screens/desync.html'"></screen>
+
+  <screen class="animationIf" ng-if="syncState == 'down'" ng-include="'screens/down.html'"></screen>
+
+  <screen class="animationIf" ng-if="syncState == 'stopped'" ng-include="'screens/stopped.html'"></screen>
+
+  <img src="assets/images/InziderX_logo_white.png" class="img-preloader">
+  
+  <script src="./assets/scripts/libs.js" charset="utf-8"></script>
+  <script src="./assets/scripts/app.js" charset="utf-8"></script>
+</body>
+
+</html>
