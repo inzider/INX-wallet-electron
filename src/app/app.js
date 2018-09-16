@@ -52,7 +52,7 @@
 
   });
 
-  app.run(function (Daemon) {
+  app.run(function (Daemon, Wallet) {
     
   });
 

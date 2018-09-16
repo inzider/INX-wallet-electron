@@ -5,42 +5,12 @@
   app.factory("Daemon", function ($rootScope, $window, System, Process) {
     var daemon = Process.initDaemonProcess();
 
+    var prepared = false;
     var systemConfig = Process.getSystemConfig();
     var daemonConfig = Process.getDaemonConfig();
 
     $rootScope.blockchain = {};
     $rootScope.$apply();
-
-    System.prepareDirectories(systemConfig);
-
-    if (System.isConnectedToInternet()) {
-      $rootScope.networkStatus = "Online";
-      $rootScope.$apply();
-      
-      console.log("Connection to internet available!");
-
-      if (!System.hasConfigFile(systemConfig.rootDir + systemConfig.configFile)) {
-        console.log("No config file has been found, starting download from git repository...");
-
-        System.downloadLatestConfig(systemConfig.rootDir + systemConfig.configFile, function () {
-          console.log("Config file is ready!");
-          runDaemon();
-        });
-      } else {
-        console.log("Config file found and ready!");
-        runDaemon();
-      }
-    } else {
-      $rootScope.networkStatus = "Offline";
-      $rootScope.$apply();
-      
-      if (System.hasConfigFile(systemConfig.rootDir + systemConfig.configFile)) {
-        console.log("Config file found and ready!");
-        runDaemon();
-      } else {
-        console.log("Config file not found and offline!");
-      }
-    }
 
     $window.addEventListener("online", function () {
       $rootScope.$broadcast("network:online");
@@ -50,7 +20,44 @@
       $rootScope.$broadcast("network:offline");
     });
 
+    function prepare() {
+      if (!prepared && System.hasGuiConfig(systemConfig.rootDir)) {
+        prepared = true;
+        
+        if (System.isConnectedToInternet()) {
+          $rootScope.networkStatus = "Online";
+          $rootScope.$apply();
+
+          console.log("Connection to internet available!");
+
+          if (!System.hasConfigFile(systemConfig.rootDir + systemConfig.configFile)) {
+            console.log("No config file has been found, starting download from git repository...");
+
+            System.downloadLatestConfig(systemConfig.rootDir + systemConfig.configFile, function () {
+              console.log("Config file is ready!");
+              runDaemon();
+            });
+          } else {
+            console.log("Config file found and ready!");
+            runDaemon();
+          }
+        } else {
+          $rootScope.networkStatus = "Offline";
+          $rootScope.$apply();
+
+          if (System.hasConfigFile(systemConfig.rootDir + systemConfig.configFile)) {
+            console.log("Config file found and ready!");
+            runDaemon();
+          } else {
+            console.log("Config file not found and offline!");
+          }
+        }
+      }
+    }
+
     function runDaemon() {
+      if (!prepared) return;
+      
       if (System.isDatabaseLocked(daemon.dataDir)) {
         System.removeDatabaseLock(daemon.dataDir);
       }
@@ -163,6 +170,10 @@
 
       on: function (eventName, callback) {
         daemon.on(eventName, callback);
+      },
+
+      prepare: function () {
+        prepare();
       },
 
       run: function () {

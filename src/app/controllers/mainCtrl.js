@@ -2,7 +2,7 @@
   
   var app = angular.module("app");
   
-  app.controller("mainCtrl", function ($rootScope, $scope, $route, Daemon) {
+  app.controller("mainCtrl", function ($rootScope, $route, System, Process) {
     $rootScope.$route = $route;
     
     $rootScope.isOnline = function () {
@@ -11,6 +11,10 @@
     
     $rootScope.getOnlineState = function () {
       return (navigator.onLine) ? "Online" : "Offline";
+    };
+    
+    $rootScope.isFirstUse = function () {
+      return !System.hasGuiConfig(Process.getSystemConfig().rootDir);
     };
     
     $rootScope.$on("network:online", function ($event) {

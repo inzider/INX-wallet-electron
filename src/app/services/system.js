@@ -75,8 +75,18 @@
           console.log("Removing existing LOCK file...");
           fs.unlinkSync(dataPath + "/DB/LOCK");
         }
-      }
+      },
+      
+      // hasGuiConfig
+      hasGuiConfig: function (rootPath) {
+        return fs.existsSync(rootPath + "gui-config.json");
+      },
 
+      // createGuiConfig
+      createGuiConfig: function (rootPath, settings) {
+        fs.writeFile(rootPath + "gui-config.json", settings);
+      }
+      
     }
   });
 

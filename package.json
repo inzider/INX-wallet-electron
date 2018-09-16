@@ -1,6 +1,6 @@
 {
   "name": "inx-wallet-electron",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "INX Wallet created with ElectronJS.",
   "main": "main.js",
   "scripts": {

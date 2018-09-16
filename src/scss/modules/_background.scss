@@ -1,16 +1,18 @@
 background {
+  backface-visibility: hidden;
+  
   .background-container {
-    position: absolute;
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
     overflow: hidden;
+    position: absolute;
     background: #000000;
+    justify-content: center;
 
     svg {
-      position: absolute;
       height: 100%;
+      position: absolute;
     }
 
     .lines {
