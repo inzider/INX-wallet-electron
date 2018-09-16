@@ -1,35 +1,46 @@
-.background-container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  background: #000000;
-
-  svg {
+background {
+  .background-container {
     position: absolute;
     height: 100%;
-  }
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background: #000000;
 
-  .lines {
-    opacity: 0.05;
-  }
+    svg {
+      position: absolute;
+      height: 100%;
+    }
 
-  .line {
-    fill-rule: evenodd;
-    clip-rule: evenodd;
-    fill: #13aff0;
-  }
+    .lines {
+      opacity: 0.05;
+    }
 
-  .lights {
-    opacity: 0.9;
-  }
+    .line {
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      fill: #13aff0;
+    }
 
-  .light {
-    fill-rule: evenodd;
-    clip-rule: evenodd;
-    fill: #13aff0;
-  }
+    .lights {
+      opacity: 0.9;
+    }
 
+    .light {
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      fill: #13aff0;
+    }
+
+  }
+  
+  &.red {
+    .line {
+      fill: red;
+    }
+    .light {
+      fill: red;
+    }
+  }
 }

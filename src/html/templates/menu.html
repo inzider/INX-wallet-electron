@@ -33,7 +33,11 @@
 </ul>
 
 <div class="status">
-  <h2>Blockchain Status</h2>
+  <div class="row">
+    <h2 class="text-center">
+      <span class="dot" ng-class="getOnlineState()"></span> <span ng-bind="getOnlineState()"></span>
+    </h2>
+  </div>
   <div class="row">
     <p class="float-left">
       Peers : <br>

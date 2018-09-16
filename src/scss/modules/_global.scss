@@ -168,18 +168,6 @@ main {
   }
 }
 
-tag {
-  color: #000000;
-  font-size: 16px;
-  font-weight: 100;
-  padding: 1px 6px;
-  direction: table;
-  background: #13aff0;
-  border-radius: 8px;
-  pointer-events: none;
-  user-select: none;
-}
-
 .img-preloader {
   opacity: 0;
   display: block;
@@ -190,6 +178,26 @@ tag {
 .ticker {
   color: #13aff0;
   font-weight: bold;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  background: #ffffff;
+  
+  &.Online {
+    background: #13aff0;
+  }
+  
+  &.Offline {
+    background: red;
+  }
+}
+
+.main-color {
+  color: #13aff0;
 }
 
 .title {
@@ -214,30 +222,6 @@ tag {
   cursor: default;
   pointer-events: none;
   -webkit-user-select: none;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.text-right {
-  text-align: right;
 }
 
 *,

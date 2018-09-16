@@ -52,12 +52,8 @@
 
   });
 
-  app.run(function ($rootScope, Daemon) {
-
-    $rootScope.$on("config:ready", function ($event) {
-      Daemon.run();
-    });
-
+  app.run(function (Daemon) {
+    
   });
 
 })();

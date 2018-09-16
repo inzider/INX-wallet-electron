@@ -1,6 +1,6 @@
 {
   "name": "inx-wallet-electron",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "INX Wallet created with ElectronJS.",
   "main": "main.js",
   "scripts": {
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "electron": "^2.0.0",
+    "gsap": "^2.0.2",
     "inx-daemon-nodejs-wrapper": "git+https://github.com/InziderX/INX-daemon-nodejs-wrapper.git",
     "inx-wallet-nodejs-wrapper": "git+https://github.com/InziderX/INX-wallet-nodejs-wrapper.git"
   }

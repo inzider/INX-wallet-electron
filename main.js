@@ -18,6 +18,7 @@ function createWindow () {
     maximizable: false,
     useContentSize: false,
     fullscreenable: false,
+    backgroundColor: "#000000",
     webPreferences: {
       devTools: true,
       javascript: true,

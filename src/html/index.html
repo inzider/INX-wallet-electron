@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
-<body ng-cloak>
-  <main class="animationIf" ng-if="syncState == 'synced'" ng-controller="mainCtrl">
+<body ng-cloak ng-controller="mainCtrl">
+  <main class="animationIf" ng-if="syncState == 'synced'" ng-cloak>
 
     <header ng-include="'templates/header.html'"></header>
 
@@ -23,15 +23,18 @@
 
   </main>
 
-  <screen class="animationIf" ng-if="syncState == 'started'" ng-include="'screens/started.html'"></screen>
+  
+  <screen class="animationIf" ng-if="syncState == 'started'" ng-include="'screens/started.html'" ng-cloak></screen>
 
-  <screen class="animationIf" ng-if="syncState == 'syncing'" ng-include="'screens/syncing.html'"></screen>
+  <screen class="animationIf" ng-if="isOnline() && syncState == 'syncing'" ng-include="'screens/syncing.html'" ng-cloak></screen>
 
-  <screen class="animationIf" ng-if="syncState == 'desync'" ng-include="'screens/desync.html'"></screen>
+  <screen class="animationIf" ng-if="syncState == 'desync'" ng-include="'screens/desync.html'" ng-cloak></screen>
 
-  <screen class="animationIf" ng-if="syncState == 'down'" ng-include="'screens/down.html'"></screen>
+  <screen class="animationIf" ng-if="syncState == 'down'" ng-include="'screens/down.html'" ng-cloak></screen>
 
-  <screen class="animationIf" ng-if="syncState == 'stopped'" ng-include="'screens/stopped.html'"></screen>
+  <screen class="animationIf" ng-if="syncState == 'stopped'" ng-include="'screens/stopped.html'" ng-cloak></screen>
+  
+  <screen class="animationIf" ng-if="!isOnline() && syncState != 'started'" ng-include="'screens/network.html'" ng-cloak></screen>
 
   <img src="assets/images/InziderX_logo_white.png" class="img-preloader">
   

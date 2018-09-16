@@ -1,22 +1,28 @@
 (function () {
 
   var fs = require("fs");
+  var dns = require("dns");
   var http = require("http");
   var https = require("https");
+  var electron = require("electron");
   var homedir = require("os").homedir();
 
   var app = angular.module("app");
 
   app.factory("System", function () {
 
-
     return {
+
+      // isConnectedToInternet
+      isConnectedToInternet: function () {
+        return navigator.onLine;
+      },
 
       // hasConfigFile
       hasConfigFile: function (configFile) {
         return fs.existsSync(configFile);
       },
-      
+
       // downloadLatestConfig
       downloadLatestConfig: function (configFile, callback) {
         console.log("Downloading config file: " + configFile);
@@ -28,7 +34,7 @@
             callback();
           });
         }).on('error', function (err) {
-          fs.unlink(configFile);
+          //fs.unlink(configFile);
         });
       },
 
