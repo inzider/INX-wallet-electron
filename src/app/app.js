@@ -11,13 +11,39 @@
     $routeProvider
 
       .when("/", {
-        controller: "indexCtrl",
-        templateUrl: "pages/index.html"
+        controller: "balancePageCtrl",
+        templateUrl: "pages/balance.html",
+        activeTab: "balance"
       })
 
-      .when("/wallet", {
-        controller: "walletCtrl",
-        templateUrl: "pages/wallet.html"
+      .when("/send", {
+        controller: "sendPageCtrl",
+        templateUrl: "pages/send.html",
+        activeTab: "send"
+      })
+    
+      .when("/transactions", {
+        controller: "transactionsPageCtrl",
+        templateUrl: "pages/transactions.html",
+        activeTab: "transactions"
+      })
+    
+      .when("/block-explorer", {
+        controller: "blockExplorerPageCtrl",
+        templateUrl: "pages/block-explorer.html",
+        activeTab: "block-explorer"
+      })
+    
+      .when("/my-contacts", {
+        controller: "myContactsPageCtrl",
+        templateUrl: "pages/my-contacts.html",
+        activeTab: "my-contacts"
+      })
+    
+      .when("/pool-mining", {
+        controller: "poolMiningPageCtrl",
+        templateUrl: "pages/pool-mining.html",
+        activeTab: "pool-mining"
       })
 
       .otherwise({

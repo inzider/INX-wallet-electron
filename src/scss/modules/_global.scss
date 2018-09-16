@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   width: 100%;
@@ -17,6 +21,123 @@ body {
 main {
   width: 100%;
   height: 100%;
+
+  header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    display: block;
+    position: absolute;
+    background: #030303;
+
+    .text-logo {
+      color: #ffffff;
+      font-size: 100px;
+      font-weight: 400;
+      padding-left: 15px;
+      line-height: 120px;
+
+      span {
+        color: #13aff0;
+      }
+    }
+  }
+
+  aside {
+    top: 120px;
+    left: 0;
+    width: 210px;
+    height: 425px;
+    display: block;
+    position: absolute;
+    background: #060606;
+
+    ul {
+      margin: 0;
+      padding: 0 10px;
+      list-style: none;
+
+      li {
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        &.disabled * {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+
+        tag {
+          top: 50%;
+          right: 10px;
+          position: absolute;
+          transform: translateY(-50%);
+        }
+
+        a {
+          cursor: pointer;
+          color: #ffffff;
+          font-size: 24px;
+          display: block;
+          padding: 10px 10px;
+          text-decoration: none;
+          transition: color 0.2s ease-out;
+
+          b {
+            cursor: pointer;
+            font-weight: bold;
+          }
+
+          &.active {
+            color: #13aff0;
+          }
+        }
+      }
+    }
+  }
+
+  content {
+    top: 120px;
+    left: 210px;
+    width: 590px;
+    height: 424px;
+    display: block;
+    padding: 45px 35px;
+    position: absolute;
+    background: #020202;
+    overflow-y: scroll;
+
+    ng-view {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+
+      h2 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 32px;
+        margin-bottom: 45px;
+      }
+      
+      p {
+        color: #ffffff;
+        font-size: 16px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+tag {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 1px 6px;
+  direction: table;
+  background: #13aff0;
+  border-radius: 8px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .img-preloader {
@@ -32,7 +153,7 @@ main {
   display: block;
   text-align: center;
   backface-visibility: hidden;
-  
+
   span {
     color: #13aff0;
   }
@@ -50,11 +171,11 @@ main {
   -webkit-user-select: none;
 }
 
-*, 
-*::after, 
+*,
+*::after,
 *::before {
-	cursor: default;
-	-webkit-user-drag: none;
-	-webkit-user-select: none;
-	-webkit-app-region: no-drag;
+  cursor: default;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
 }

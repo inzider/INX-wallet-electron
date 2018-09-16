@@ -1,6 +1,33 @@
-<h1>MENU:</h1>
 <ul>
-  <li><a href="#!/">Index</a></li>
-  <li><a href="#!/wallet">Wallet</a></li>
-  <li><a href="#!/invalid">Invalid</a></li>
+  <li>
+    <a href="#!/" ng-class="{active: $route.current.activeTab == 'balance'}">
+      <b>INX</b> Balance
+    </a>
+  </li>
+  <li>
+    <a href="#!/send" ng-class="{active: $route.current.activeTab == 'send'}">
+      Send <b>INX</b>
+    </a>
+  </li>
+  <li>
+    <a href="#!/transactions" ng-class="{active: $route.current.activeTab == 'transactions'}">
+      Transactions
+    </a>
+    <tag ng-bind="countUnseenTransactions()">0</tag>
+  </li>
+  <li class="disabled">
+    <a href="#!/block-explorer" ng-class="{active: $route.current.activeTab == 'block-explorer'}">
+      Block Explorer
+    </a>
+  </li>
+  <li class="disabled">
+    <a href="#!/my-contacts" ng-class="{active: $route.current.activeTab == 'my-contacts'}">
+      My Contacts
+    </a>
+  </li>
+  <li class="disabled">
+    <a href="#!/pool-mining" ng-class="{active: $route.current.activeTab == 'pool-mining'}">
+      Pool Mining
+    </a>
+  </li>
 </ul>

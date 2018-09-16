@@ -68,6 +68,7 @@
           daemonWrapper.on('started', function () {
             $rootScope.$broadcast('started');
             $rootScope.syncState = "started";
+            $rootScope.syncState = "synced";
             $rootScope.syncPercent = "0";
             $rootScope.$apply();
 
