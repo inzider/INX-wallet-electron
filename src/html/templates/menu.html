@@ -31,3 +31,21 @@
     </a>
   </li>
 </ul>
+
+<div class="status">
+  <h2>Blockchain Status</h2>
+  <div class="row">
+    <p class="float-left">
+      Peers : <br>
+      Height : <br>
+      Hashrate : <br>
+      Difficulty :
+    </p>
+    <p class="float-right text-right">
+      <span ng-bind="peerCount">0</span> / <span ng-bind="peerCountTotal">0</span> <br>
+      <span ng-bind="blockchain.height">0</span> / <span ng-bind="blockchain.network_height">0</span> <br>
+      <span ng-bind="blockchain.globalHashRate">0</span> H/s <br>
+      <span ng-bind="blockchain.difficulty"></span>
+    </p>
+  </div>
+</div>

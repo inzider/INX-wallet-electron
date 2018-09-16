@@ -68,8 +68,11 @@
           daemonWrapper.on('started', function () {
             $rootScope.$broadcast('started');
             $rootScope.syncState = "started";
-            $rootScope.syncState = "synced";
+            //$rootScope.syncState = "synced";
             $rootScope.syncPercent = "0";
+            $rootScope.peerCount = "0";
+            $rootScope.peerCountTotal = "0";
+            $rootScope.blockchain.tx_count = info.tx_count;
             $rootScope.$apply();
 
             console.log('Daemon is attempting to synchronize with the network...')
@@ -103,9 +106,12 @@
             $rootScope.$broadcast('getInfo', info);
             $rootScope.syncPercent = info.percent;
             $rootScope.peerCount = info.white_peerlist_size;
+            $rootScope.peerCountTotal = (info.white_peerlist_size + info.grey_peerlist_size);
             $rootScope.blockchain.height = info.height;
             $rootScope.blockchain.network_height = info.network_height;
             $rootScope.blockchain.tx_count = info.tx_count;
+            $rootScope.blockchain.difficulty = info.difficulty;
+            $rootScope.blockchain.globalHashRate = info.hashrate;
             $rootScope.$apply();
           });
           
